@@ -3,7 +3,6 @@ export default class usersRepository {
         this.dao = dao;
     }
 
-
     getUsers = async () => {
         let result = await this.dao.getUsers();
         return result;
@@ -26,6 +25,11 @@ export default class usersRepository {
 
     updateUser = async (id, user) => {
         let result = await this.dao.updateUser(id, user);
+        return result
+    }
+
+    uploadDocuments = async (id,documents) => {
+        let result = await this.dao.uploadDocuments(id, documents);
         return result
     }
 

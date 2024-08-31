@@ -49,7 +49,10 @@ class AuthController {
             if (!isValidPassword(user, password)) {
                 return done(null, false);
             }
-
+            console.log(1)
+            user.last_conecttion = new Date().toISOString();
+            console.log(user)
+            await usersService.updateUser(user._id, user);
             return done(null, user);
         } catch (error) {
             return done("Error al obtener el usuario: " + error);
